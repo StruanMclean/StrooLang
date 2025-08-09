@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 4.0)
 project(StrooLang C)
 
 set(CMAKE_C_STANDARD 11)

@@ -1,2 +1,3 @@
+/Users/struanmclean/Documents/StrooLang/build/CMakeFiles/StrooLang.dir
 /Users/struanmclean/Documents/StrooLang/build/CMakeFiles/edit_cache.dir
 /Users/struanmclean/Documents/StrooLang/build/CMakeFiles/rebuild_cache.dir
