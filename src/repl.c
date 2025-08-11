@@ -26,11 +26,21 @@ char *readline(void)
 
 void repl(void)
 {
+    // Clear repl before opening
+    FILE *tmpfile = fopen("tmp/repl.sl", "w");
+    ASSERT(tmpfile, "Could not open repl\n");
+    fclose(tmpfile);
+    
+    tmpfile = fopen("tmp/repl.sl", "a");
+    ASSERT(tmpfile, "Could not open repl\n");
+
     while (1)
     {
         printf("> ");
         char *code = readline();
-        printf("%s \n", code);
+
+        fprintf(tmpfile, "%s\n", code);
+        fflush(tmpfile);
 
         if (strcmp(code, "!quit") == 0)
         {
