@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#define ASSERT(e, ...) if (!(e)) { fprintf(stderr, __VA_ARGS__); exit(1); }
+#include "../include/repl.h"
 
 int main(int argc, char *argv[]) 
 {
@@ -11,6 +10,11 @@ int main(int argc, char *argv[])
     if (strcmp(argv[1], "run") == 0)
     {
         ASSERT(argc >= 3, "No file provided\n");
+    }
+
+    else if (strcmp(argv[1], "repl") == 0)
+    {
+        repl();
     }
 
     return 0;

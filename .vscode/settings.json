@@ -3,6 +3,9 @@
         "*.heex": "phoenix-heex",
         "*.html.heex": "phoenix-heex",
         "*.html.leex": "phoenix-heex",
-        "typedef.h": "c"
+        "typedef.h": "c",
+        "repl.h": "c",
+        "stdlib.h": "c",
+        "stdio.h": "c"
     }
 }
