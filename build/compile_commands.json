@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/struanmclean/Documents/StrooLang/build",
+  "command": "/usr/bin/clang -I/Users/struanmclean/Documents/StrooLang/include -g -std=gnu11 -arch arm64 -o CMakeFiles/StrooLang.dir/src/main.c.o -c /Users/struanmclean/Documents/StrooLang/src/main.c",
+  "file": "/Users/struanmclean/Documents/StrooLang/src/main.c",
+  "output": "CMakeFiles/StrooLang.dir/src/main.c.o"
+}
+]

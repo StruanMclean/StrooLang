@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.heex": "phoenix-heex",
+        "*.html.heex": "phoenix-heex",
+        "*.html.leex": "phoenix-heex",
+        "typedef.h": "c"
+    }
+}
