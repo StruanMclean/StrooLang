@@ -34,6 +34,9 @@ void repl(void)
     tmpfile = fopen("tmp/repl.sl", "a");
     ASSERT(tmpfile, "Could not open repl\n");
 
+    printf("StrooLang Interactive Repl (Built by StruanMclean):\n");
+    printf("!quit to quit, !clear to clear\n");
+
     while (1)
     {
         printf("> ");
@@ -43,6 +46,21 @@ void repl(void)
         {
             free(code);
             break;
+        }
+
+        if (strcmp(code, "!clear") == 0)
+        {
+            fclose(tmpfile);
+            tmpfile = fopen("tmp/repl.sl", "w");
+            ASSERT(tmpfile, "Could not open repl\n");
+            fclose(tmpfile);
+            
+            tmpfile = fopen("tmp/repl.sl", "a");
+            ASSERT(tmpfile, "Could not open repl\n");
+            system("@cls||clear");
+            printf("StrooLang Interactive Repl (Built by StruanMclean):\n");
+            printf("!quit to quit, !clear to clear\n");
+            continue;
         }
 
         fprintf(tmpfile, "%s\n", code);
