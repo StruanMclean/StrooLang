@@ -39,15 +39,60 @@ void repl(void)
         printf("> ");
         char *code = readline();
 
-        fprintf(tmpfile, "%s\n", code);
-        fflush(tmpfile);
-
         if (strcmp(code, "!quit") == 0)
         {
             free(code);
             break;
         }
 
+        fprintf(tmpfile, "%s\n", code);
+        fflush(tmpfile);
+
         free(code);
     }
+}
+
+void get_repl(void)
+{
+    FILE *fp = fopen("tmp/repl.sl", "r");
+    ASSERT(fp, "Could not open repl file");
+
+    char *linebuffer = NULL;
+    size_t size = 0;
+    size_t len = 0;
+    int line = 1;
+    int c;
+
+    printf("\n\nYour code which is currently stored in the repl as tmp file: \n\n");
+
+    while ((c = fgetc(fp)) != EOF)
+    {
+        if (len + 1 >= size)
+        {
+            size = size ? size * 2 : 16;
+            linebuffer = realloc(linebuffer, size);
+
+            ASSERT(linebuffer, "Failed to read text");
+        }
+
+        linebuffer[len++] = (char)c;
+
+        if (c == '\n') {
+            linebuffer[len] = '\0';
+            printf("line %i: %s", line, linebuffer);
+            len = 0;
+            line++;
+        }
+    }
+
+    if (len > 0)
+    {
+        linebuffer[len] = '\0';
+        printf("line %i: %s", line, linebuffer);
+    }
+
+    printf("\nEOF \n\n");
+
+    free(linebuffer);
+    fclose(fp);
 }

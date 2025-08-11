@@ -14,7 +14,15 @@ int main(int argc, char *argv[])
 
     else if (strcmp(argv[1], "repl") == 0)
     {
-        repl();
+        if ((argc > 2) && (strcmp(argv[2], "get") == 0))
+        {
+            get_repl();
+            return 0;
+        } else
+        {
+            repl();
+            return 0;
+        }
     }
 
     return 0;

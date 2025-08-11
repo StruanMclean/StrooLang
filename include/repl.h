@@ -8,5 +8,6 @@
 
 char *readline(void);
 void repl(void);
+void get_repl(void);
 
 #endif
